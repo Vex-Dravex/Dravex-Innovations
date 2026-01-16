@@ -95,20 +95,20 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center space-y-8 fade-in">
+          <div className="text-center space-y-10 fade-in">
             <div className="inline-block">
               <span className="px-4 py-2 rounded-full text-sm font-semibold bg-purple-600/20 text-purple-300 border border-purple-500/30 backdrop-blur-sm">
                 🚀 Innovation Meets Excellence
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               Building the Future with
               <br />
               <span className="gradient-text">Custom Solutions</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               We create cutting-edge software and hardware solutions that solve real-world problems for businesses and consumers.
             </p>
 
@@ -134,11 +134,11 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-20 border-y border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center space-y-2 fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-4xl md:text-5xl font-bold gradient-text">{stat.value}</div>
-                <div className="text-gray-400">{stat.label}</div>
+              <div key={index} className="text-center space-y-3 fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text">{stat.value}</div>
+                <div className="text-sm md:text-base text-gray-400 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -161,14 +161,14 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="glass rounded-2xl p-6 hover-lift hover-glow transition-all duration-300 space-y-4 fade-in"
+                className="glass rounded-2xl p-8 hover-lift hover-glow transition-all duration-300 flex flex-col space-y-4 fade-in h-full"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white glow">
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white glow flex-shrink-0">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white">{service.title}</h3>
-                <p className="text-gray-400">{service.description}</p>
+                <p className="text-gray-400 leading-relaxed flex-grow">{service.description}</p>
               </div>
             ))}
           </div>

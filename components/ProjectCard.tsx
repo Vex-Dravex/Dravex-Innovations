@@ -21,11 +21,11 @@ export default function ProjectCard({
     featured = false,
 }: ProjectCardProps) {
     return (
-        <Link href={`/projects/${slug}`} className="group block">
-            <div className={`glass rounded-2xl overflow-hidden hover-lift hover-glow transition-all duration-300 h-full ${featured ? 'border-2 border-purple-500/50' : ''
+        <Link href={`/projects/${slug}`} className="group block h-full">
+            <div className={`glass rounded-2xl overflow-hidden hover-lift hover-glow transition-all duration-300 h-full flex flex-col ${featured ? 'border-2 border-purple-500/50' : ''
                 }`}>
                 {/* Image */}
-                <div className="relative h-48 bg-gradient-to-br from-purple-900/20 to-purple-600/20 overflow-hidden">
+                <div className="relative h-48 bg-gradient-to-br from-purple-900/20 to-purple-600/20 overflow-hidden flex-shrink-0">
                     {imageUrl ? (
                         <Image
                             src={imageUrl}
@@ -42,28 +42,26 @@ export default function ProjectCard({
                             </div>
                         </div>
                     )}
-                    {/* Category Badge */}
-                    <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-purple-600/90 text-white backdrop-blur-sm">
+                    {/* Badges Container */}
+                    <div className="absolute top-3 left-3 right-3 flex items-start justify-between gap-2">
+                        {featured && (
+                            <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-yellow-500/90 text-black backdrop-blur-sm">
+                                Featured
+                            </span>
+                        )}
+                        <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-purple-600/90 text-white backdrop-blur-sm ml-auto">
                             {category}
                         </span>
                     </div>
-                    {featured && (
-                        <div className="absolute top-4 left-4">
-                            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-500/90 text-black backdrop-blur-sm">
-                                Featured
-                            </span>
-                        </div>
-                    )}
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-4">
-                    <div>
+                <div className="p-6 space-y-4 flex flex-col flex-grow">
+                    <div className="flex-grow">
                         <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
                             {title}
                         </h3>
-                        <p className="text-gray-400 text-sm line-clamp-2">
+                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                             {description}
                         </p>
                     </div>
@@ -73,20 +71,20 @@ export default function ProjectCard({
                         {techStack.slice(0, 4).map((tech, index) => (
                             <span
                                 key={index}
-                                className="px-2 py-1 rounded-md text-xs bg-white/5 text-gray-300 border border-white/10"
+                                className="px-3 py-1.5 rounded-md text-xs bg-white/5 text-gray-300 border border-white/10 hover:border-purple-500/50 transition-colors"
                             >
                                 {tech}
                             </span>
                         ))}
                         {techStack.length > 4 && (
-                            <span className="px-2 py-1 rounded-md text-xs text-purple-400">
+                            <span className="px-3 py-1.5 rounded-md text-xs text-purple-400 font-medium">
                                 +{techStack.length - 4} more
                             </span>
                         )}
                     </div>
 
                     {/* View Project Link */}
-                    <div className="flex items-center text-purple-400 font-medium text-sm group-hover:text-purple-300">
+                    <div className="flex items-center text-purple-400 font-medium text-sm group-hover:text-purple-300 pt-2">
                         View Project
                         <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
