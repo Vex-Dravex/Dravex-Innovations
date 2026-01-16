@@ -77,13 +77,6 @@ export default function Home() {
     },
   ]
 
-  const stats = [
-    { value: '50+', label: 'Projects Completed' },
-    { value: '30+', label: 'Happy Clients' },
-    { value: '5+', label: 'Years Experience' },
-    { value: '100%', label: 'Client Satisfaction' },
-  ]
-
   return (
     <div className="gradient-bg">
       {/* Hero Section */}
@@ -127,20 +120,6 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 border-y border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center space-y-3 fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text">{stat.value}</div>
-                <div className="text-sm md:text-base text-gray-400 font-medium">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
