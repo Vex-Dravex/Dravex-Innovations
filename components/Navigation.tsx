@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import Button from './Button'
 
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -29,21 +30,21 @@ export default function Navigation() {
                 }`}
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center h-20">
-                    {/* Logo */}
-                    <div className="flex-shrink-0 ml-8">
+                <div className="flex items-center justify-between h-20 relative">
+                    {/* Logo - Positioned Absolute Left to not affect link centering */}
+                    <div className="flex-shrink-0 z-10 md:absolute md:left-4 lg:left-8">
                         <Link href="/" className="flex items-center space-x-3 group">
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center glow transition-all duration-300 group-hover:glow-strong">
-                                <span className="text-white font-bold text-xl">D</span>
+                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-slate-800 flex items-center justify-center glow transition-all duration-300 group-hover:glow-strong">
+                                <span className="text-white font-bold text-xl uppercase italic">D</span>
                             </div>
-                            <span className="text-xl font-bold gradient-text hidden sm:block">
+                            <span className="text-xl font-bold gradient-text hidden lg:block">
                                 Dravex Innovations
                             </span>
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation - Centered */}
-                    <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
+                    {/* Desktop Navigation - Strictly Centered via Flex-Grow/Justify-Center */}
+                    <div className="hidden md:flex flex-grow justify-center items-center gap-8 z-0">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}
@@ -55,14 +56,11 @@ export default function Navigation() {
                         ))}
                     </div>
 
-                    {/* CTA Button */}
-                    <div className="hidden md:block flex-shrink-0">
-                        <Link
-                            href="/contact"
-                            className="px-8 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium hover:from-purple-500 hover:to-purple-600 transition-all duration-200 glow hover:glow-strong"
-                        >
+                    {/* CTA Button - Positioned Absolute Right to not affect link centering */}
+                    <div className="hidden md:block flex-shrink-0 z-10 md:absolute md:right-4 lg:right-8">
+                        <Button href="/contact" variant="primary" size="sm">
                             Get Started
-                        </Link>
+                        </Button>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -109,16 +107,21 @@ export default function Navigation() {
                                 {link.label}
                             </Link>
                         ))}
-                        <Link
-                            href="/contact"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block mx-4 mt-4 px-6 py-2.5 text-center rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium"
-                        >
-                            Get Started
-                        </Link>
+                        <div className="px-4 pt-2">
+                            <Button
+                                href="/contact"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                variant="primary"
+                                size="md"
+                                className="w-full"
+                            >
+                                Get Started
+                            </Button>
+                        </div>
                     </div>
                 )}
             </div>
         </nav>
     )
 }
+

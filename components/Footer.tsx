@@ -59,8 +59,8 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="space-y-4">
                         <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center glow">
-                                <span className="text-white font-bold text-xl">D</span>
+                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-slate-800 flex items-center justify-center glow transition-all duration-300 group-hover:glow-strong">
+                                <span className="text-white font-bold text-xl uppercase italic">D</span>
                             </div>
                             <span className="text-xl font-bold gradient-text">
                                 Dravex Innovations
@@ -139,12 +139,12 @@ export default function Footer() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
                                 required
-                                className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                                className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
                             />
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium hover:from-purple-500 hover:to-purple-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-purple-700 to-slate-800 text-white font-medium hover:from-purple-600 hover:to-slate-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-purple-500/30"
                             >
                                 {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                             </button>

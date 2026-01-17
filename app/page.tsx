@@ -83,14 +83,14 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-800/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-slate-800/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center space-y-10 fade-in">
             <div className="inline-block">
-              <span className="px-4 py-2 rounded-full text-sm font-semibold bg-purple-600/20 text-purple-300 border border-purple-500/30 backdrop-blur-sm">
+              <span className="px-4 py-2 rounded-full text-sm font-semibold bg-purple-600/10 text-purple-300 border border-purple-500/20 backdrop-blur-sm">
                 🚀 Innovation Meets Excellence
               </span>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
               We create cutting-edge software and hardware solutions that solve real-world problems for businesses and consumers.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
               <Button href="/projects" variant="primary" size="lg">
                 View Our Work
               </Button>
@@ -143,7 +143,7 @@ export default function Home() {
                 className="glass rounded-2xl p-8 hover-lift hover-glow transition-all duration-300 flex flex-col space-y-4 fade-in h-full"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white glow flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl bg-slate-800 border border-purple-500/30 flex items-center justify-center text-purple-400 glow-purple flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:border-purple-500/50 group-hover:text-purple-300">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white">{service.title}</h3>
@@ -152,7 +152,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-20">
             <Button href="/services" variant="secondary" size="lg">
               Learn More About Our Services
             </Button>
@@ -198,7 +198,7 @@ export default function Home() {
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Let's discuss your project and create a custom solution that exceeds your expectations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button href="/contact" variant="primary" size="lg">
                 Start Your Project
               </Button>
