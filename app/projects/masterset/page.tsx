@@ -42,13 +42,13 @@ export default function MasterSetPage() {
     ]
 
     const techStack = [
-        'React Native',
-        'TypeScript',
-        'Firebase',
-        'Redux',
-        'Stripe',
-        'Barcode Scanner',
-        'Cloud Functions',
+        'SwiftUI',
+        'Swift 6',
+        'Supabase',
+        'Vision Framework',
+        'CloudKit',
+        'Core Animation',
+        'StoreKit 2',
         'Push Notifications',
     ]
 
@@ -73,7 +73,7 @@ export default function MasterSetPage() {
                                 <span className="gradient-text">MasterSet</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-gray-300">
-                                The ultimate mobile app for TCG collectors and vendors to manage collections, track card values, and monitor completion progress.
+                                A premium native iOS app for TCG collectors and vendors. Scan cards with your camera, track collection value in real-time, and browse sets with holographic card animations inspired by Pokemon Pocket TCG.
                             </p>
                         </div>
                     </div>
