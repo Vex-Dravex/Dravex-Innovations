@@ -1,33 +1,24 @@
 import Link from 'next/link'
 
-/* ============================================================
-   DRAVEX INNOVATIONS — HOMEPAGE
-   Framework / Teenage Engineering direction with purple accent.
-   The orange-accent version of this same layout is preserved
-   at /alt for reference.
-   ============================================================ */
-
 const CREAM = '#ece6d8'
 const INK = '#161514'
-const PURPLE = '#7c3aed'
+const ORANGE = '#ff5b1e'
 
-export default function Home() {
+export default function HomeAlt() {
   const capabilities = [
     {
       num: '01',
       code: 'DVX—WEB',
       title: 'Web platforms',
-      blurb:
-        'Applications, dashboards, and storefronts built on modern React with typed end-to-end data flow.',
+      blurb: 'Applications, dashboards, and storefronts built on modern React with typed end-to-end data flow.',
       tags: ['Next.js', 'TypeScript', 'Postgres'],
-      tint: PURPLE,
+      tint: '#ff5b1e',
     },
     {
       num: '02',
       code: 'DVX—MOB',
       title: 'Mobile apps',
-      blurb:
-        'iOS and Android apps engineered for reliability, offline-first behavior, and real-time sync.',
+      blurb: 'iOS and Android apps engineered for reliability, offline-first behavior, and real-time sync.',
       tags: ['React Native', 'Swift', 'Kotlin'],
       tint: '#ffb400',
     },
@@ -35,8 +26,7 @@ export default function Home() {
       num: '03',
       code: 'DVX—EXT',
       title: 'Browser extensions',
-      blurb:
-        'Workflow tools that live inside the browser — scraping, augmentation, and upstream integrations.',
+      blurb: 'Workflow tools that live inside the browser — scraping, augmentation, and upstream integrations.',
       tags: ['Manifest v3', 'Chrome APIs', 'TS'],
       tint: '#4aa3ff',
     },
@@ -44,8 +34,7 @@ export default function Home() {
       num: '04',
       code: 'DVX—HW',
       title: 'Hardware',
-      blurb:
-        'Small-batch electronics and accessories designed around modularity, repairability, and lifetime.',
+      blurb: 'Small-batch electronics and accessories designed around modularity, repairability, and lifetime.',
       tags: ['PCB', 'Firmware', 'CAD'],
       tint: '#41c38a',
     },
@@ -66,7 +55,7 @@ export default function Home() {
       slug: 'creative-finance',
       kind: 'Web platform',
       year: '2025',
-      tint: PURPLE,
+      tint: '#ff5b1e',
     },
     {
       pn: 'DVX-RE-03',
@@ -99,10 +88,10 @@ export default function Home() {
         {/* Top spec strip */}
         <div
           className="w-full font-mono text-[10px] uppercase tracking-[0.22em] px-6 lg:px-10 py-3 flex justify-between"
-          style={{ borderBottom: `1px solid ${INK}`, color: INK, paddingTop: 80 }}
+          style={{ borderBottom: `1px solid ${INK}`, color: INK }}
         >
           <span>DVX—STUDIO · EST. 2024</span>
-          <span className="hidden md:block">CAT. NO. 001 · REV 05 · 2026</span>
+          <span className="hidden md:block">CAT. NO. 001 · REV 04 · 2026</span>
           <span>MADE ON EARTH</span>
         </div>
 
@@ -115,7 +104,7 @@ export default function Home() {
             >
               <span
                 className="inline-block w-1.5 h-1.5 rounded-full"
-                style={{ background: PURPLE }}
+                style={{ background: ORANGE }}
               />
               NEW · ACCEPTING Q2 / 2026
             </div>
@@ -129,7 +118,7 @@ export default function Home() {
               making{' '}
               <span
                 className="italic"
-                style={{ color: PURPLE, fontWeight: 500 }}
+                style={{ color: ORANGE, fontWeight: 500 }}
               >
                 carefully-built
               </span>
@@ -173,7 +162,7 @@ export default function Home() {
 
           {/* Right: schematic illustration */}
           <div className="lg:col-span-5 relative">
-            <Schematic ink={INK} accent={PURPLE} cream={CREAM} />
+            <Schematic ink={INK} accent={ORANGE} cream={CREAM} />
           </div>
         </div>
       </section>
@@ -232,7 +221,7 @@ export default function Home() {
               >
                 Four modules.
                 <br />
-                <span style={{ color: PURPLE }}>One workbench.</span>
+                <span style={{ color: ORANGE }}>One workbench.</span>
               </h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7 flex items-end">
@@ -264,10 +253,7 @@ export default function Home() {
 
                 <div className="flex items-start justify-between mb-10 pt-2">
                   <div>
-                    <div
-                      className="font-mono text-[11px] uppercase tracking-[0.2em]"
-                      style={{ color: '#6a645c' }}
-                    >
+                    <div className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: '#6a645c' }}>
                       {c.code}
                     </div>
                     <div
@@ -293,10 +279,7 @@ export default function Home() {
                 >
                   {c.title}
                 </h3>
-                <p
-                  className="mt-3 max-w-md text-[15px] leading-relaxed"
-                  style={{ color: '#4a4642' }}
-                >
+                <p className="mt-3 max-w-md text-[15px] leading-relaxed" style={{ color: '#4a4642' }}>
                   {c.blurb}
                 </p>
 
@@ -322,10 +305,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
             <div className="max-w-2xl">
-              <div
-                className="font-mono text-xs uppercase tracking-[0.22em] mb-5"
-                style={{ color: '#8a857b' }}
-              >
+              <div className="font-mono text-xs uppercase tracking-[0.22em] mb-5" style={{ color: '#8a857b' }}>
                 — [B] The Catalog
               </div>
               <h2
@@ -334,7 +314,7 @@ export default function Home() {
               >
                 Recently shipped
                 <br />
-                <span style={{ color: PURPLE }}>from the bench.</span>
+                <span style={{ color: ORANGE }}>from the bench.</span>
               </h2>
             </div>
             <Link
@@ -362,19 +342,12 @@ export default function Home() {
                 {/* Color tab */}
                 <div
                   className="absolute top-0 left-0 right-0 h-2"
-                  style={{
-                    background: p.tint,
-                    borderTopLeftRadius: '4px',
-                    borderTopRightRadius: '4px',
-                  }}
+                  style={{ background: p.tint, borderTopLeftRadius: '4px', borderTopRightRadius: '4px' }}
                 />
 
                 <div className="flex items-start justify-between mb-16 pt-2">
                   <div>
-                    <div
-                      className="font-mono text-[11px] uppercase tracking-[0.2em]"
-                      style={{ color: '#6a645c' }}
-                    >
+                    <div className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: '#6a645c' }}>
                       P/N
                     </div>
                     <div className="font-mono text-sm mt-1">{p.pn}</div>
@@ -393,10 +366,7 @@ export default function Home() {
                 >
                   {p.title}
                 </h3>
-                <div
-                  className="mt-2 font-mono text-xs uppercase tracking-[0.18em]"
-                  style={{ color: '#6a645c' }}
-                >
+                <div className="mt-2 font-mono text-xs uppercase tracking-[0.18em]" style={{ color: '#6a645c' }}>
                   {p.kind}
                 </div>
 
@@ -422,18 +392,11 @@ export default function Home() {
       </section>
 
       {/* ============ CTA ============ */}
-      <section style={{ background: INK, color: CREAM }}>
+      <section style={{ background: ORANGE, color: INK }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
           <div className="grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8">
-              <div
-                className="font-mono text-xs uppercase tracking-[0.22em] mb-6 inline-flex items-center gap-2"
-                style={{ color: '#8a857b' }}
-              >
-                <span
-                  className="inline-block w-1.5 h-1.5 rounded-full"
-                  style={{ background: PURPLE }}
-                />
+              <div className="font-mono text-xs uppercase tracking-[0.22em] mb-6">
                 — [C] Drop us a line
               </div>
               <h2
@@ -442,12 +405,9 @@ export default function Home() {
               >
                 Got something
                 <br />
-                <span style={{ color: '#a78bfa' }}>tricky to build?</span>
+                tricky to build?
               </h2>
-              <p
-                className="mt-8 text-lg max-w-xl leading-relaxed"
-                style={{ color: '#bcb9b1' }}
-              >
+              <p className="mt-8 text-lg max-w-xl leading-relaxed">
                 We pick up a few new engagements each quarter. If the fit is right, we&apos;ll reply within two business days.
               </p>
             </div>
@@ -455,8 +415,8 @@ export default function Home() {
             <div className="lg:col-span-4 flex flex-col gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-between gap-2 px-6 py-4 rounded-full text-sm font-medium transition-colors hover:opacity-90"
-                style={{ background: PURPLE, color: 'white' }}
+                className="group inline-flex items-center justify-between gap-2 px-6 py-4 rounded-full text-sm font-medium transition-colors"
+                style={{ background: INK, color: CREAM }}
               >
                 Start a project
                 <svg
@@ -472,7 +432,6 @@ export default function Home() {
               <a
                 href="mailto:vex@dravexinnovations.com"
                 className="font-mono text-xs uppercase tracking-[0.18em] hover:underline"
-                style={{ color: '#bcb9b1' }}
               >
                 vex@dravexinnovations.com
               </a>
@@ -484,15 +443,7 @@ export default function Home() {
   )
 }
 
-function Schematic({
-  ink,
-  accent,
-  cream,
-}: {
-  ink: string
-  accent: string
-  cream: string
-}) {
+function Schematic({ ink, accent, cream }: { ink: string; accent: string; cream: string }) {
   return (
     <div className="relative">
       <svg
@@ -515,13 +466,7 @@ function Schematic({
         {/* Grid of holes */}
         {Array.from({ length: 6 }).map((_, r) =>
           Array.from({ length: 9 }).map((_, c) => (
-            <circle
-              key={`${r}-${c}`}
-              cx={100 + c * 18}
-              cy={132 + r * 16}
-              r="1.5"
-              fill={ink}
-            />
+            <circle key={`${r}-${c}`} cx={100 + c * 18} cy={132 + r * 16} r="1.5" fill={ink} />
           ))
         )}
 
@@ -544,13 +489,16 @@ function Schematic({
         <rect x="148" y="295" width="22" height="10" rx="2" />
 
         {/* Callout leaders */}
+        {/* Leader 1 - to knob */}
         <line x1="328" y1="175" x2="395" y2="175" stroke={ink} />
         <line x1="395" y1="175" x2="395" y2="140" stroke={ink} />
         <circle cx="300" cy="175" r="2" fill={ink} />
 
+        {/* Leader 2 - to screen */}
         <line x1="92" y1="122" x2="25" y2="122" stroke={ink} />
         <line x1="25" y1="122" x2="25" y2="80" stroke={ink} />
 
+        {/* Leader 3 - to accent button */}
         <line x1="143" y1="280" x2="143" y2="380" stroke={ink} />
 
         {/* Crosshairs at corners */}
@@ -567,65 +515,26 @@ function Schematic({
         ))}
 
         {/* Callout labels */}
-        <text
-          x="395"
-          y="132"
-          fontSize="9"
-          fill={ink}
-          fontFamily="var(--font-geist-mono), monospace"
-          textAnchor="end"
-          letterSpacing="1.5"
-        >
+        <text x="395" y="132" fontSize="9" fill={ink} fontFamily="var(--font-geist-mono), monospace" textAnchor="end" letterSpacing="1.5">
           [01] CTRL
         </text>
-        <text
-          x="25"
-          y="72"
-          fontSize="9"
-          fill={ink}
-          fontFamily="var(--font-geist-mono), monospace"
-          letterSpacing="1.5"
-        >
+        <text x="25" y="72" fontSize="9" fill={ink} fontFamily="var(--font-geist-mono), monospace" letterSpacing="1.5">
           [02] DISPLAY
         </text>
-        <text
-          x="143"
-          y="395"
-          fontSize="9"
-          fill={ink}
-          fontFamily="var(--font-geist-mono), monospace"
-          textAnchor="middle"
-          letterSpacing="1.5"
-        >
+        <text x="143" y="395" fontSize="9" fill={ink} fontFamily="var(--font-geist-mono), monospace" textAnchor="middle" letterSpacing="1.5">
           [03] SOFTKEY
         </text>
 
         {/* Top-right part number */}
-        <text
-          x="355"
-          y="78"
-          fontSize="8"
-          fill={ink}
-          fontFamily="var(--font-geist-mono), monospace"
-          textAnchor="end"
-          letterSpacing="1.5"
-        >
-          DVX—01 · REV 05
+        <text x="355" y="78" fontSize="8" fill={ink} fontFamily="var(--font-geist-mono), monospace" textAnchor="end" letterSpacing="1.5">
+          DVX—01 · REV 04
         </text>
 
         {/* Dimension lines */}
         <line x1="60" y1="350" x2="360" y2="350" stroke={ink} strokeDasharray="2 3" />
         <line x1="60" y1="346" x2="60" y2="354" stroke={ink} />
         <line x1="360" y1="346" x2="360" y2="354" stroke={ink} />
-        <text
-          x="210"
-          y="365"
-          fontSize="8"
-          fill={ink}
-          fontFamily="var(--font-geist-mono), monospace"
-          textAnchor="middle"
-          letterSpacing="1.5"
-        >
+        <text x="210" y="365" fontSize="8" fill={ink} fontFamily="var(--font-geist-mono), monospace" textAnchor="middle" letterSpacing="1.5">
           300.0 MM
         </text>
       </svg>
@@ -633,7 +542,7 @@ function Schematic({
       {/* Corner sticker */}
       <div
         className="absolute -top-2 -right-2 w-16 h-16 rounded-full flex items-center justify-center font-mono text-[9px] uppercase tracking-[0.15em] rotate-12 shadow-sm"
-        style={{ background: accent, color: cream, textAlign: 'center', lineHeight: 1.2 }}
+        style={{ background: accent, color: ink, textAlign: 'center', lineHeight: 1.2 }}
       >
         MADE
         <br />

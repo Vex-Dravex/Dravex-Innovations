@@ -665,3 +665,54 @@ a:hover {
     font-size: 1.25rem;
   }
 }
+
+/* ============================================
+   EDITORIAL SCOPE (Linear/Vercel direction)
+   Applied only to elements inside .font-editorial
+   so existing pages stay untouched.
+   ============================================ */
+
+.font-editorial,
+.font-editorial h1,
+.font-editorial h2,
+.font-editorial h3,
+.font-editorial h4,
+.font-editorial h5,
+.font-editorial h6,
+.font-editorial p,
+.font-editorial a,
+.font-editorial span,
+.font-editorial button,
+.font-editorial div {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.011em;
+}
+
+.font-editorial .font-mono,
+.font-editorial [class*="font-mono"] {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0;
+}
+
+.font-editorial h1,
+.font-editorial h2,
+.font-editorial h3 {
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+/* Subtle blueprint grid for the editorial hero */
+.grid-pattern-subtle {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%);
+}
+
+/* Faint vertical ruler lines */
+.ruler-lines {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%;
+}

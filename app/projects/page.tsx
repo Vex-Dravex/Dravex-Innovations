@@ -1,109 +1,345 @@
 import { Metadata } from 'next'
-import ProjectCard from '@/components/ProjectCard'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-    title: 'Our Projects | Dravex Innovations',
-    description: 'Explore our portfolio of innovative software and hardware projects including MasterSet, Creative Finance Platform, Real Estate Extension, and FRAMEWORK Dock.',
+  title: 'Projects | Dravex Innovations',
+  description:
+    'A catalog of recent work — MasterSet, Creative Finance, Real Estate Extension, FRAMEWORK Dock, and more.',
 }
 
+const CREAM = '#ece6d8'
+const INK = '#161514'
+const PURPLE = '#7c3aed'
+const PURPLE_LIGHT = '#a78bfa'
+
 export default function ProjectsPage() {
-    const projects = [
-        {
-            title: 'MasterSet',
-            slug: 'masterset',
-            category: 'Mobile App',
-            description: 'A comprehensive mobile app for TCG collectors and vendors to track collections, card values, and completion progress with real-time market data.',
-            techStack: ['React Native', 'TypeScript', 'Firebase', 'Redux', 'Stripe'],
-            featured: true,
-        },
-        {
-            title: 'Creative Finance Platform',
-            slug: 'creative-finance',
-            category: 'Web SaaS',
-            description: 'Full-featured platform with marketplace, verified contractor profiles, community forum, education center, and custom CRM tools for real estate investors and wholesalers.',
-            techStack: ['Next.js', 'Supabase', 'PostgreSQL', 'Stripe', 'TypeScript', 'Tailwind CSS'],
-            featured: true,
-        },
-        {
-            title: 'Real Estate Browser Extension',
-            slug: 'real-estate-extension',
-            category: 'Browser Extension',
-            description: 'Intelligent extension that scrapes addresses from any webpage, pulls MLS and public data, provides contact info, and recommends creative finance strategies.',
-            techStack: ['TypeScript', 'Chrome API', 'React', 'MLS Integration', 'Web Scraping'],
-            featured: true,
-        },
-        {
-            title: 'FRAMEWORK Dock',
-            slug: 'framework-dock',
-            category: 'Hardware',
-            description: 'Modular, repairable docking station designed around the Framework laptop philosophy of sustainability, user repairability, and upgradability.',
-            techStack: ['PCB Design', 'USB-C', 'Thunderbolt 4', 'Modular Design', 'KiCad'],
-            featured: true,
-        },
-    ]
+  const projects = [
+    {
+      pn: 'DVX-MS-01',
+      title: 'MasterSet',
+      slug: 'masterset',
+      kind: 'Mobile application',
+      year: '2025',
+      blurb:
+        'A comprehensive app for TCG collectors and vendors — track collections, card values, and completion progress with real-time market data.',
+      tech: ['React Native', 'TypeScript', 'Firebase', 'Redux', 'Stripe'],
+      tint: '#ffb400',
+    },
+    {
+      pn: 'DVX-CF-02',
+      title: 'Creative Finance Platform',
+      slug: 'creative-finance',
+      kind: 'Web platform',
+      year: '2025',
+      blurb:
+        'A full-featured platform for real-estate investors — marketplace, verified contractor profiles, community forum, education center, and a custom CRM.',
+      tech: ['Next.js', 'Supabase', 'Postgres', 'Stripe', 'TypeScript', 'Tailwind'],
+      tint: PURPLE,
+    },
+    {
+      pn: 'DVX-RE-03',
+      title: 'Real Estate Extension',
+      slug: 'real-estate-extension',
+      kind: 'Browser extension',
+      year: '2025',
+      blurb:
+        'An intelligent extension that scrapes addresses from any webpage, pulls MLS and public data, and recommends creative finance strategies on the spot.',
+      tech: ['TypeScript', 'Chrome API', 'React', 'MLS Integration', 'Scraping'],
+      tint: '#4aa3ff',
+    },
+    {
+      pn: 'DVX-FD-04',
+      title: 'FRAMEWORK Dock',
+      slug: 'framework-dock',
+      kind: 'Hardware',
+      year: '2026',
+      blurb:
+        'A modular, repairable docking station designed around the Framework laptop philosophy — sustainability, user repairability, and lifetime upgradability.',
+      tech: ['PCB Design', 'USB-C', 'Thunderbolt 4', 'Modular', 'KiCad'],
+      tint: '#41c38a',
+    },
+  ]
 
-    return (
-        <div className="gradient-bg min-h-screen">
-            {/* Hero Section */}
-            <section className="section pt-32">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto text-center space-y-6 fade-in">
-                        <h1 className="text-5xl md:text-6xl font-bold">
-                            Our <span className="gradient-text">Projects</span>
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-300">
-                            Innovative solutions we've built to solve real-world problems
-                        </p>
-                    </div>
-                </div>
-            </section>
+  const categories = [
+    { name: 'Web applications', count: '15+', code: 'WEB' },
+    { name: 'Mobile apps', count: '10+', code: 'MOB' },
+    { name: 'Browser extensions', count: '05+', code: 'EXT' },
+    { name: 'Hardware', count: '03+', code: 'HW' },
+  ]
 
-            {/* Projects Grid */}
-            <section className="section">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                        {projects.map((project, index) => (
-                            <div key={index} className="fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                                <ProjectCard {...project} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="font-editorial -mt-20" style={{ background: CREAM, color: INK }}>
+      {/* Top spec strip */}
+      <div
+        className="w-full font-mono text-[10px] uppercase tracking-[0.22em] px-6 lg:px-10 py-3 flex justify-between"
+        style={{ borderBottom: `1px solid ${INK}`, color: INK, paddingTop: 80 }}
+      >
+        <span>DVX—STUDIO · EST. 2024</span>
+        <span className="hidden md:block">FILE · CATALOG · REV 01</span>
+        <span>MADE ON EARTH</span>
+      </div>
 
-            {/* Categories Section */}
-            <section className="section bg-gradient-to-b from-transparent to-black/20">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 space-y-4">
-                        <h2 className="text-4xl md:text-5xl font-bold">
-                            Project <span className="gradient-text">Categories</span>
-                        </h2>
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                            We specialize in diverse areas of technology
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                        {[
-                            { name: 'Web Applications', count: '15+', icon: '🌐' },
-                            { name: 'Mobile Apps', count: '10+', icon: '📱' },
-                            { name: 'Browser Extensions', count: '5+', icon: '🔌' },
-                            { name: 'Hardware', count: '3+', icon: '⚙️' },
-                        ].map((category, index) => (
-                            <div
-                                key={index}
-                                className="glass rounded-2xl p-6 text-center space-y-3 hover-glow transition-all duration-300 fade-in"
-                                style={{ animationDelay: `${index * 0.1}s` }}
-                            >
-                                <div className="text-5xl">{category.icon}</div>
-                                <h3 className="text-xl font-bold text-white">{category.name}</h3>
-                                <p className="text-3xl font-bold gradient-text">{category.count}</p>
-                                <p className="text-gray-400 text-sm">Projects Completed</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* ============ HERO ============ */}
+      <section style={{ borderBottom: `1px solid ${INK}` }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+          <div
+            className="font-mono text-xs uppercase tracking-[0.22em] mb-6 inline-flex items-center gap-2"
+            style={{ color: '#6a645c' }}
+          >
+            <span
+              className="inline-block w-1.5 h-1.5 rounded-full"
+              style={{ background: PURPLE }}
+            />
+            — The catalog
+          </div>
+          <h1
+            className="text-[clamp(2.5rem,7vw,5.5rem)] tracking-[-0.035em] font-medium leading-[0.98] max-w-5xl"
+            style={{ fontFamily: 'var(--font-geist-sans)' }}
+          >
+            Work that
+            <br />
+            <span style={{ color: PURPLE }}>left the bench.</span>
+          </h1>
+          <p
+            className="mt-10 max-w-2xl text-lg leading-relaxed"
+            style={{ color: '#4a4642' }}
+          >
+            A selection of projects we&apos;ve shipped — each with its own part number, its
+            own brief, and its own way of being used in the field.
+          </p>
         </div>
-    )
+      </section>
+
+      {/* ============ PROJECTS GRID ============ */}
+      <section style={{ background: INK, color: CREAM, borderBottom: `1px solid ${INK}` }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/projects/${p.slug}`}
+                className="group block relative p-8 transition-transform hover:-translate-y-0.5"
+                style={{ background: CREAM, color: INK, borderRadius: 4 }}
+              >
+                <div
+                  className="absolute top-0 left-0 right-0 h-2"
+                  style={{
+                    background: p.tint,
+                    borderTopLeftRadius: 4,
+                    borderTopRightRadius: 4,
+                  }}
+                />
+
+                <div className="flex items-start justify-between mb-10 pt-2">
+                  <div>
+                    <div
+                      className="font-mono text-[11px] uppercase tracking-[0.2em]"
+                      style={{ color: '#6a645c' }}
+                    >
+                      P/N
+                    </div>
+                    <div className="font-mono text-sm mt-1">{p.pn}</div>
+                  </div>
+                  <div
+                    className="font-mono text-[11px] uppercase tracking-[0.2em] text-right"
+                    style={{ color: '#6a645c' }}
+                  >
+                    {p.year}
+                  </div>
+                </div>
+
+                <h3
+                  className="text-2xl md:text-3xl font-medium tracking-[-0.02em]"
+                  style={{ fontFamily: 'var(--font-geist-sans)' }}
+                >
+                  {p.title}
+                </h3>
+                <div
+                  className="mt-2 font-mono text-xs uppercase tracking-[0.18em]"
+                  style={{ color: '#6a645c' }}
+                >
+                  {p.kind}
+                </div>
+
+                <p
+                  className="mt-6 text-[15px] leading-relaxed"
+                  style={{ color: '#4a4642' }}
+                >
+                  {p.blurb}
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="font-mono text-[10px] uppercase tracking-[0.14em] px-2 py-1 rounded-sm"
+                      style={{ border: `1px solid ${INK}`, color: INK }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium"
+                  style={{ color: INK }}
+                >
+                  View build
+                  <svg
+                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ CATEGORIES ============ */}
+      <section style={{ borderBottom: `1px solid ${INK}` }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24">
+          <div className="grid lg:grid-cols-12 gap-10 mb-14">
+            <div className="lg:col-span-5">
+              <div
+                className="font-mono text-xs uppercase tracking-[0.22em] mb-5"
+                style={{ color: '#6a645c' }}
+              >
+                — [B] Inventory
+              </div>
+              <h2
+                className="text-4xl md:text-5xl lg:text-6xl tracking-[-0.035em] font-medium leading-[1]"
+                style={{ fontFamily: 'var(--font-geist-sans)' }}
+              >
+                What we&apos;ve
+                <br />
+                <span style={{ color: PURPLE }}>shipped.</span>
+              </h2>
+            </div>
+          </div>
+
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+            style={{ borderTop: `1px solid ${INK}`, borderLeft: `1px solid ${INK}` }}
+          >
+            {categories.map((c) => (
+              <div
+                key={c.code}
+                className="p-8"
+                style={{
+                  borderRight: `1px solid ${INK}`,
+                  borderBottom: `1px solid ${INK}`,
+                  background: CREAM,
+                }}
+              >
+                <div
+                  className="font-mono text-[11px] uppercase tracking-[0.2em]"
+                  style={{ color: '#6a645c' }}
+                >
+                  DVX—{c.code}
+                </div>
+                <div
+                  className="font-mono text-6xl font-medium leading-none mt-3"
+                  style={{ color: INK }}
+                >
+                  {c.count}
+                </div>
+                <h3
+                  className="mt-6 text-xl font-medium tracking-[-0.02em]"
+                  style={{ fontFamily: 'var(--font-geist-sans)' }}
+                >
+                  {c.name}
+                </h3>
+                <div
+                  className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em]"
+                  style={{ color: '#6a645c' }}
+                >
+                  Delivered
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ CTA ============ */}
+      <section style={{ background: CREAM }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+          <div className="grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <div
+                className="font-mono text-xs uppercase tracking-[0.22em] mb-6 inline-flex items-center gap-2"
+                style={{ color: '#6a645c' }}
+              >
+                <span
+                  className="inline-block w-1.5 h-1.5 rounded-full"
+                  style={{ background: PURPLE }}
+                />
+                — Your turn
+              </div>
+              <h2
+                className="text-5xl md:text-6xl lg:text-7xl tracking-[-0.035em] font-medium leading-[1]"
+                style={{ fontFamily: 'var(--font-geist-sans)' }}
+              >
+                Got one that
+                <br />
+                <span style={{ color: PURPLE }}>belongs here?</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-4 flex flex-col gap-4">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-between gap-2 px-6 py-4 rounded-full text-sm font-medium"
+                style={{ background: INK, color: CREAM }}
+              >
+                Commission a build
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+              <Link
+                href="/services"
+                className="group inline-flex items-center justify-between gap-2 px-6 py-4 rounded-full text-sm font-medium border-2"
+                style={{ borderColor: INK, color: INK }}
+              >
+                See services
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }

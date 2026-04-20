@@ -2,126 +2,145 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import Button from './Button'
+import { Wordmark, INK, CREAM } from './brand/Wordmark'
 
 export default function Navigation() {
-    const [isScrolled, setIsScrolled] = useState(false)
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20)
-        }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
-    const navLinks = [
-        { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
-        { href: '/services', label: 'Services' },
-        { href: '/projects', label: 'Projects' },
-        { href: '/contact', label: 'Contact' },
-    ]
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Services' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/contact', label: 'Contact' },
+  ]
 
-    return (
-        <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/30 backdrop-blur-md' : 'bg-transparent'
-                }`}
-        >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-20 relative">
-                    {/* Logo - Positioned Absolute Left to not affect link centering */}
-                    <div className="flex-shrink-0 z-10 md:absolute md:left-4 lg:left-8">
-                        <Link href="/" className="flex items-center space-x-3 group">
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-slate-800 flex items-center justify-center glow transition-all duration-300 group-hover:glow-strong">
-                                <span className="text-white font-bold text-xl uppercase italic">D</span>
-                            </div>
-                            <span className="text-xl font-bold gradient-text hidden lg:block">
-                                Dravex Innovations
-                            </span>
-                        </Link>
-                    </div>
+  return (
+    <nav
+      className="font-editorial fixed top-0 inset-x-0 z-50 transition-all duration-200"
+      style={{
+        background: isScrolled ? 'rgba(236, 230, 216, 0.85)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(14px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(14px)' : 'none',
+        borderBottom: isScrolled ? `1px solid rgba(22,21,20,0.08)` : '1px solid transparent',
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="h-20 flex items-center justify-between">
+          {/* Wordmark */}
+          <Link
+            href="/"
+            className="flex-shrink-0"
+            style={{ color: INK }}
+            aria-label="Dravex Innovations home"
+          >
+            <Wordmark color={INK} scale={0.85} />
+          </Link>
 
-                    {/* Desktop Navigation - Strictly Centered via Flex-Grow/Justify-Center */}
-                    <div className="hidden md:flex flex-grow justify-center items-center gap-8 z-0">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="text-gray-300 hover:text-purple-400 transition-colors duration-200 font-medium whitespace-nowrap"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                    </div>
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-opacity hover:opacity-60"
+                style={{
+                  fontFamily: 'var(--font-geist-mono)',
+                  fontSize: 11,
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: INK,
+                  fontWeight: 500,
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
 
-                    {/* CTA Button - Positioned Absolute Right to not affect link centering */}
-                    <div className="hidden md:block flex-shrink-0 z-10 md:absolute md:right-4 lg:right-8">
-                        <Button href="/contact" variant="primary" size="sm">
-                            Get Started
-                        </Button>
-                    </div>
+          {/* Desktop CTA */}
+          <Link
+            href="/contact"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-colors hover:opacity-90"
+            style={{ background: INK, color: CREAM }}
+          >
+            Start a project
+            <svg
+              className="w-3.5 h-3.5"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-                        aria-label="Toggle menu"
-                    >
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            {isMobileMenuOpen ? (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            ) : (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                            )}
-                        </svg>
-                    </button>
-                </div>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className="md:hidden p-2"
+            style={{ color: INK }}
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+            >
+              {isMobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
 
-                {/* Mobile Menu */}
-                {isMobileMenuOpen && (
-                    <div className="md:hidden py-4 space-y-2 border-t border-white/10">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="block px-4 py-2 text-gray-300 hover:text-purple-400 hover:bg-white/5 rounded-lg transition-colors"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        <div className="px-4 pt-2">
-                            <Button
-                                href="/contact"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                variant="primary"
-                                size="md"
-                                className="w-full"
-                            >
-                                Get Started
-                            </Button>
-                        </div>
-                    </div>
-                )}
-            </div>
-        </nav>
-    )
+        {/* Mobile menu */}
+        {isMobileOpen && (
+          <div
+            className="md:hidden py-6 space-y-4"
+            style={{ borderTop: '1px solid rgba(22,21,20,0.08)' }}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileOpen(false)}
+                className="block py-1"
+                style={{
+                  fontFamily: 'var(--font-geist-mono)',
+                  fontSize: 12,
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: INK,
+                  fontWeight: 500,
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileOpen(false)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium mt-3"
+              style={{ background: INK, color: CREAM }}
+            >
+              Start a project
+            </Link>
+          </div>
+        )}
+      </div>
+    </nav>
+  )
 }
-
