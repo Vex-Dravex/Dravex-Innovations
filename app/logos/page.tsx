@@ -534,7 +534,12 @@ function Crest({
         letterSpacing="3"
         opacity={0.85}
       >
-        <textPath href="#crest-bot-arc" startOffset="50%" textAnchor="middle" side="right">
+        <textPath
+          href="#crest-bot-arc"
+          startOffset="50%"
+          textAnchor="middle"
+          {...({ side: 'right' } as object)}
+        >
           ATELIER · EST · MMXXIV
         </textPath>
       </text>
