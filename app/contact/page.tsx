@@ -21,22 +21,16 @@ export default function ContactPage() {
       code: '[01]',
     },
     {
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
-      code: '[02]',
-    },
-    {
       label: 'Location',
       value: 'Remote · on-site on request',
       link: null,
-      code: '[03]',
+      code: '[02]',
     },
     {
       label: 'Response time',
       value: 'Within 48 hours',
       link: null,
-      code: '[04]',
+      code: '[03]',
     },
   ]
 
