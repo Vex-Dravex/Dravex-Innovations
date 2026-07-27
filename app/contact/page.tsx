@@ -34,6 +34,18 @@ export default function ContactPage() {
     },
   ]
 
+  // Entries without a href are staged but not rendered — better a missing tile
+  // than one that lands on a generic homepage.
+  const socials = (
+    [
+      { label: 'X', href: 'https://x.com/DravexInnovates' },
+      { label: 'GH', href: 'https://github.com/Vex-Dravex' },
+      { label: 'YT', href: 'https://www.youtube.com/@DravexInnovations' },
+      { label: 'FB', href: null },
+      { label: 'IG', href: null },
+    ] as { label: string; href: string | null }[]
+  ).filter((s): s is { label: string; href: string } => Boolean(s.href))
+
   const faqs = [
     {
       q: 'What does a typical project timeline look like?',
@@ -175,11 +187,7 @@ export default function ContactPage() {
                 — Elsewhere
               </div>
               <div className="flex gap-3">
-                {[
-                  { label: 'X', href: 'https://twitter.com' },
-                  { label: 'GH', href: 'https://github.com' },
-                  { label: 'IN', href: 'https://linkedin.com' },
-                ].map((s) => (
+                {socials.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
